@@ -5,6 +5,8 @@ spring:
     port: 6379
     password:
     timeout: 300ms
+    key:
+      token: token
   boot:
     admin:
       client:
@@ -40,3 +42,4 @@ secure:
       - /admin/info
       - /admin/logout
       - /minio/upload
+      - /ums/**

@@ -1,5 +1,6 @@
 package com.mtcarpenter.mall.controller;
 
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.mtcarpenter.mall.common.api.CommonResult;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;

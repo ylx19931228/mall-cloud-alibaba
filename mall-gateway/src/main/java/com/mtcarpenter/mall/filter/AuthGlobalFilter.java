@@ -13,7 +13,9 @@ import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.server.reactive.ServerHttpRequest;
+import org.springframework.http.server.reactive.ServerHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
@@ -42,9 +44,9 @@ public class AuthGlobalFilter implements GlobalFilter, Ordered {
 
     @Value("${jwt.tokenHeader}")
     private String tokenHeader;
-    @Value("${redis.database}")
+    @Value("${spring.redis.database}")
     private String REDIS_DATABASE;
-    @Value("${redis.key.token}")
+    @Value("${spring.redis.key.token}")
     private String REDIS_KEY_TOKEN;
 
     @Override

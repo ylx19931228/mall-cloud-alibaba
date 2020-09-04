@@ -1,5 +1,6 @@
 package com.mtcarpenter.mall.security.component;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import cn.hutool.core.util.URLUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -50,6 +51,7 @@ public class DynamicSecurityMetadataSource implements FilterInvocationSecurityMe
         // 未设置操作请求权限，返回空集合
         return configAttributes;
     }
+
 
     @Override
     public Collection<ConfigAttribute> getAllConfigAttributes() {

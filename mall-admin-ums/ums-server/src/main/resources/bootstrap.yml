@@ -2,15 +2,22 @@ server:
   port: 8081
 spring:
   profiles:
+    # 指定配置文件
     # dev 默认为开发环境 , prod 线上环境
-    active: prod
+    active: dev
   application:
     name: mall-admin-ums
   cloud:
     nacos:
       discovery:
         server-addr: 127.0.0.1:8848
+#        namespace: public
       config:
         server-addr: 127.0.0.1:8848
-        prefix: mall-admin-ums
         file-extension: yaml
+#        namespace: 21817a02-1c20-4b8b-b898-7f5ad89fac0e
+        #覆盖扩展配置文件
+#        extension-configs:
+#          - dataId: mall-admin-ums.yaml
+#            group: DEFAULT_GROUP
+#            refresh: true

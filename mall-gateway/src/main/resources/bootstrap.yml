@@ -3,7 +3,7 @@ server:
 spring:
   profiles:
     # dev 默认为开发环境 , prod 线上环境
-    active: prod
+    active: dev
   application:
     name: mall-gateway
   cloud:
@@ -31,3 +31,17 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
             allow-credentials: true
+      routes:
+        # admin_ums 网关转发
+        - id: mall_admin_ums
+#          uri: http://127.0.0.1:8081/**
+          uri: lb://mall-admin-ums
+          predicates:
+            - Path=/ums/**
+          filters:
+            - StripPrefix=1
+jwt:
+  tokenHeader: Authorization #JWT存储的请求头
+  secret: mall-admin-secret #JWT加解密使用的密钥
+  expiration: 604800 #JWT的超期限时间(60*60*24*7)
+  tokenHead: Bearer  #JWT负载中拿到开头

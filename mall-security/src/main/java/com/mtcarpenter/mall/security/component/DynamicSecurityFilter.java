@@ -13,6 +13,7 @@ import org.springframework.util.PathMatcher;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * 动态权限过滤器，用于实现基于路径的动态权限过滤
